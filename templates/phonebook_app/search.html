@@ -1,12 +1,12 @@
 {% extends "phonebook_app/base.html" %}
 
 {% block body_block %}
-{% if people_list %}
-{% for person in people_list %}
+{% if object_list %}
+    {% for person in object_list %}
 
-    <a href='{{ person.get_absolute_url}}'>{{person.imie}} {{person.nazwisko}} </a>
+        <a href='{{ person.get_absolute_url}}'>{{person.imie}} {{person.nazwisko}} </a>
 
-{% endfor %}
+    {% endfor %}
 {% else %}
 <p>Nie ma takiej osoby</p>
 {% endif %}
