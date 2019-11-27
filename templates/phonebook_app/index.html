@@ -2,7 +2,7 @@
 
 {% block head_block %}
 <form action="search" method="GET">
-    <input type="text" name="q" placeholder="Szukaj">
+    <input type="text" name="q" placeholder="Szukaj" value="{{ request.GET.q }}">
     <button type="submit">Szukaj</button>
 </form>
 {% endblock %}

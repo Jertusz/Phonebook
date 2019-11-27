@@ -6,6 +6,6 @@
 <form  method="post">
   {% csrf_token %}
   <input type="submit" value="Usuń">
-  <a href="{% url 'detail' osoba.id %}">Cofnij</a>
+  <a href="{% url 'phonebook_app:detail' osoba.id %}">Cofnij</a>
 </form>
 {% endblock %}
