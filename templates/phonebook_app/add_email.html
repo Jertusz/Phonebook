@@ -1,0 +1,17 @@
+{% extends "phone_book_app/base.html" %}
+
+
+
+{% block body_block %}
+<h1>Dodaj Email dla:</h1>
+<h2>{{people_detail.imie}} {{people_detail.nazwisko}}</h2>
+
+
+<form method="post">
+  {%  csrf_token %}
+  {{ form.as_p }}
+   <input type="submit" value="Ok">
+</form>
+
+
+{% endblock %}

@@ -1,0 +1,11 @@
+{% extends "phonebook_app/base.html" %}
+
+{% block body_block %}
+<h2>Na pewno chcesz usunąć kontakt:</h2>
+<h2>{{osoba.imie}} {{osoba.nazwisko}}?</h2>
+<form  method="post">
+  {% csrf_token %}
+  <input type="submit" value="Usuń">
+  <a href="{% url 'detail' osoba.id %}">Cofnij</a>
+</form>
+{% endblock %}

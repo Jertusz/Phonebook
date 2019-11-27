@@ -1,0 +1,37 @@
+{% extends "phonebook_app/base.html" %}
+
+{% block body_block %}
+
+    <h2>{{people_detail.imie}} {{people_detail.nazwisko}}</h2>
+    <p><u>Telefony:</u></p>
+
+    {% if people_detail.telefon_set.all %}
+      {% for number in people_detail.telefon_set.all %}
+        <p>{{number}}</p>
+      {% endfor %}
+    {% else %}
+      <p>Brak dostępnych numerów</p>
+    {% endif %}
+
+    <p><u>Emaile:</u></p>
+        {% if people_detail.email_set.all %}
+            {% for mail in people_detail.email_set.all %}
+                <p>{{mail}}</p>
+            {% endfor %}
+        {% else %}
+            <p>Brak dostępnych adresów email</p>
+        {% endif %}
+
+
+    <p><a href="{% url 'update' people_detail.id %}">Edytuj</a></p>
+    <p><a href="{% url 'createtel' people_detail.id %}">Dodaj numer telefonu</a>
+       <a href="{% url 'createmail' people_detail.id %}">Dodaj Email</a>
+    </p>
+
+    <p><a href="{% url 'delete' people_detail.id %}">Usuń</a></p>
+
+
+    <p><a href="{% url 'list' %}">Lista kontaktów</a></p>
+
+
+{% endblock %}
